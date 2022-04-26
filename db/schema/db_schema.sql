@@ -1,0 +1,48 @@
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS resources CASCADE;
+DROP TABLE IF EXISTS resource_comments CASCADE;
+DROP TABLE IF EXISTS resource_ratings CASCADE;
+DROP TABLE IF EXISTS resource_likes CASCADE;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  admin BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE resources (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  url VARCHAR(255) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  category TEXT,
+  created_at DATE NOT NULL,
+  deleted_on DATE DEFAULT NULL
+);
+
+CREATE TABLE resource_comments (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  resource_id INTEGER REFERENCES resources(id) ON DELETE CASCADE,
+  created_at DATE NOT NULL,
+  message TEXT
+);
+
+CREATE TABLE resource_ratings (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  resource_id INTEGER REFERENCES resources(id) ON DELETE CASCADE,
+  created_at DATE NOT NULL,
+  rating SMALLINT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE resource_likes (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  resource_id INTEGER REFERENCES resources(id) ON DELETE CASCADE,
+  thumbs_up BOOLEAN DEFAULT FALSE,
+  thumbs_down BOOLEAN DEFAULT FALSE
+);
