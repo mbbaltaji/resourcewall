@@ -1,0 +1,6 @@
+#resource-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  flex-wrap: wrap;
+}
