@@ -1,3 +1,35 @@
+$(document).ready(() => {
+  loadResources();
+  hideForm();
+  $(".add_button").on("click", showForm);
+  $(".cancel").on("click", hideForm);
+});
+
+const loadResources = function () {
+  const $container = $("#resource-container");
+  $.ajax({
+    url: "/api/resources",
+    method: "GET",
+    dataType: "json",
+    success: (data) => {
+      const resourceElements = data.resources.map(createResourceItem);
+      $container.append(resourceElements);
+    },
+    error: (xhr, status, errorMessage) => {
+      console.log("error recieved", status, errorMessage);
+    },
+  });
+};
+
+const hideForm = function () {
+  $(".add_form").hide();
+  // hide the add resource form
+};
+
+const showForm = function () {
+  $(".add_form").show();
+  // show the add resource form
+};
 /*const createResourceElement = (data) => {
   const $div = $('<div>');
   const $url = $('<p>').text(data.url);
@@ -27,8 +59,7 @@ const renderResources = (data) => {
 */
 const createResourceItem = function (resource) {
   //return $("<li>").text(`${resource.url} - ${resource.title} - ${resource.description} - ${resource.created_at}`);
-  const $resourceCard =
-  $(`<div class="card" style="width: 18rem;">
+  const $resourceCard = $(`<div class="card" style="width: 18rem;">
   <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">${resource.title}</h5>
@@ -39,21 +70,3 @@ const createResourceItem = function (resource) {
 
   return $resourceCard;
 };
-
-
-$(document).ready(() => {
-  const $container = $("#resource-container");
-    $.ajax({
-    url: "/api/resources",
-    method: "GET",
-    dataType: "json",
-    success: (data) => {
-      const resourceElements = data.resources.map(createResourceItem);
-      $container.append(resourceElements);
-    },
-    error: (xhr, status, errorMessage) => {
-      console.log("error recieved", status, errorMessage);
-    },
-  });
-
-});
