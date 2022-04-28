@@ -27,7 +27,7 @@ const hideForm = function () {
 };
 
 const showForm = function () {
-  $(".add_form").show();
+  $(".add_form").slideDown("slow");
   // show the add resource form
 };
 /*const createResourceElement = (data) => {
