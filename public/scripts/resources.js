@@ -27,9 +27,9 @@ const renderResources = (data) => {
 */
 const createResourceItem = function (resource) {
   //return $("<li>").text(`${resource.url} - ${resource.title} - ${resource.description} - ${resource.created_at}`);
-  const $resourceCard =
-  $(`<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  const img = `http://api.pagepeeker.com/v2/thumbs.php?size=m&code={code}&refresh={refresh}&wait={wait}&url=${resource.url}`;
+  const $resourceCard = $(`<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="${img}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">${resource.title}</h5>
     <p class="card-text">${resource.description}</p>
