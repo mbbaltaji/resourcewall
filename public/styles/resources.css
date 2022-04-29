@@ -5,3 +5,8 @@
   flex-wrap: wrap;
   margin-top: 15vh;
 }
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
