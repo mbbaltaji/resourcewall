@@ -1,30 +1,3 @@
-/*const createResourceElement = (data) => {
-  const $div = $('<div>');
-  const $url = $('<p>').text(data.url);
-  const $title = $('<p>').text(data.title);
-  const $description = $('<p>').text(data.description);
-  const $category = $('<p>').text(data.category);
-  const $date = $('<p>').text(data.created_at);
-
-  $div.append($url, $title, $description, $category, $date);
-
-  const $resource = $('<article class="resource">');
-
-  $resource.append($div);
-
-  return $resource;
-
-}
-
-const renderResources = (data) => {
-  const $resourceComponent = $('#resource-container');
-
-  for (const resource of data) {
-    const $resource = createResourceElement(resource);
-    $resourceComponent.append($resource);
-  }
-}
-*/
 const categories = {
   sports: "fa-solid fa-basketball",
   educational: "fa-solid fa-graduation-cap",
@@ -97,4 +70,23 @@ $(document).ready(() => {
     //   $container.append(resourceElements);
     // });
   });
+
+  $('#category-search').click(function () {
+    const $val = $('#category').val();
+
+    $.ajax({
+      url: '/api/category',
+      method: 'POST',
+      dataType: "json",
+      data: {'searchQuery': $val},
+      success: (data) => {
+        const resourceElements = data.resources.map(createResourceItem);
+        $container.empty();
+        $container.append(resourceElements);
+      },
+      error: (xhr, status, errorMessage) => {
+        console.log("error recieved", status, errorMessage);
+      }
+    })
+  })
 });
