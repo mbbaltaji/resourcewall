@@ -64,7 +64,7 @@ const categories = {
   coding: "fa-solid fa-code",
   cooking: "fa-solid fa-utensils",
   music: "fa-solid fa-music",
-  travel: "fa-solid fa-bus"
+  travel: "fa-solid fa-bus",
 };
 
 const createResourceItem = function (resource) {
@@ -86,3 +86,46 @@ const createResourceItem = function (resource) {
 
   return $resourceCard;
 };
+
+$(document).ready(() => {
+  const $container = $("#resource-container");
+  $.ajax({
+    url: "/api/resources",
+    method: "GET",
+    dataType: "json",
+    success: (data) => {
+      const resourceElements = data.resources.map(createResourceItem);
+      $container.append(resourceElements);
+    },
+    error: (xhr, status, errorMessage) => {
+      console.log("error recieved", status, errorMessage);
+    },
+  });
+
+  // click handler for search button
+  $("#search-btn").click(function () {
+    // store the value of search input field
+    const $val = $("#search-input").val();
+    // make a post request to /api/resources
+    $.ajax({
+      url: "/api/resources",
+      method: "POST",
+      dataType: "json",
+      data: { searchQuery: $val }, //object containing search input value
+      success: (data) => {
+        console.log(data);
+        const resourceElements = data.resources.map(createResourceItem);
+        $container.empty();
+        $container.append(resourceElements);
+      },
+      error: (xhr, status, errorMessage) => {
+        console.log("error recieved", status, errorMessage);
+      },
+    });
+    // $.post('/api/resources', {'searchQuery': $val}, (res) => {
+    //   const resourceElements = res.resources.map(createResourceItem);
+    //   $container.empty();
+    //   $container.append(resourceElements);
+    // });
+  });
+});
