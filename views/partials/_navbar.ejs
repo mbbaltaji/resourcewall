@@ -5,24 +5,38 @@
   <div>
     <a class="navbar-brand" href="#">LOGO</a>
   </div>
-
+  <div id="search-bar">
+    <div class="input-group rounded">
+      <input
+        id="search-input"
+        type="text"
+        class="form-control rounded"
+        placeholder="Search"
+        aria-label="Search"
+        aria-describedby="search-addon"
+      />
+      <button id="search-btn">
+        <a class="nav-link" href="#"
+          ><i title="search" class="fa-solid fa-magnifying-glass"></i
+        ></a>
+      </button>
+    </div>
+  </div>
   <div id="icons" class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/resources"
-          ><i class="fa-solid fa-book"></i
-        ></a>
-      </li>
-      <li class="nav-item add_button">
-        <a class="nav-link" href="#" data-content="New Resource"
-          ><i class="fa-solid fa-plus"></i
+          ><i title="View Resources" class="fa-solid fa-book"></i
         ></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"
-          ><i class="fa-solid fa-magnifying-glass"></i
+        <a class="nav-link" href="#" data-content="New Resource"
+          ><i title="Add Resource" class="fa-solid fa-plus"></i
         ></a>
       </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#"><i title="search" class="fa-solid fa-magnifying-glass"></i></a>
+      </li> -->
     </ul>
   </div>
 </nav>
