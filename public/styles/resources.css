@@ -6,11 +6,11 @@
   margin-top: 15vh;
 }
 
-<<<<<<< HEAD
-
-=======
 .title {
   display: flex;
   justify-content: space-between;
 }
->>>>>>> f4454b07649c08549d83937e09233b4ab5e9be3d
+
+.add_form {
+  display: none;
+}

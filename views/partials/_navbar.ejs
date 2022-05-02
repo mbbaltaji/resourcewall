@@ -3,8 +3,7 @@
   class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"
 >
   <div>
-<<<<<<< HEAD
-  <a class="navbar-brand" href="#">LOGO</a>
+    <a class="navbar-brand" href="#">LOGO</a>
     <select name="category" id="category">
       <option value="sports">sports</option>
       <option value="educational">educational</option>
@@ -15,9 +14,6 @@
       <option value="travel">travel</option>
     </select>
     <button id="category-search">Browse</button>
-=======
-    <a class="navbar-brand" href="#">LOGO</a>
->>>>>>> 3b57c70a2a2762ccd175a07e4d0364a03ed5e9bd
   </div>
   <div id="search-bar">
     <div class="input-group rounded">
@@ -44,9 +40,14 @@
         ></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" data-content="New Resource"
-          ><i title="Add Resource" class="fa-solid fa-plus"></i
-        ></a>
+        <button
+          type="button"
+          class="btn btn-dark"
+          data-bs-toggle="modal"
+          data-bs-target="#addFormModal"
+        >
+          <i title="Add Resource" class="fa-solid fa-plus"></i>
+        </button>
       </li>
       <!-- <li class="nav-item">
         <a class="nav-link" href="#"><i title="search" class="fa-solid fa-magnifying-glass"></i></a>
@@ -54,3 +55,83 @@
     </ul>
   </div>
 </nav>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="addFormModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="form-inline" action="/api/resources" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Resource</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="title">TITLE:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              placeholder="Resource Title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="resource_url">URL</label>
+            <input
+              type="url"
+              class="form-control"
+              id="url"
+              name="url"
+              placeholder="Resource URL"
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">DESCRIPTION:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              name="description"
+              placeholder="Resource description"
+            />
+          </div>
+          <div class="form-group">
+            <label for="categorey">CATEGORY:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="categorey"
+              name="categorey"
+              placeholder="Resource category"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
