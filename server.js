@@ -7,6 +7,8 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const cookieParser = require('cookie-parser');
+
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -21,6 +23,7 @@ app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.use(
   "/styles",
@@ -58,6 +61,22 @@ app.get("/", (req, res) => {
 
 app.get("/resources", (req, res) => {
   res.render("resources");
+});
+
+app.get("/login/:user_id", (req, res) => {
+  const id = req.params.user_id;
+  res.cookie('user_id', id);
+
+  dbQuery= `
+  SELECT name FROM users
+  WHERE id = $1
+  `;
+
+  db.query(dbQuery, [id])
+  .then(data => {
+    const userName = data.rows[0];
+    res.render('resources', {user: userName.name});
+  })
 });
 
 app.listen(PORT, () => {
