@@ -19,7 +19,7 @@ CREATE TABLE resources (
   title VARCHAR(255) NOT NULL,
   description TEXT,
   category TEXT,
-  created_at DATE NOT NULL,
+  created_at DATE NOT NULL DEFAULT now(),
   deleted_on DATE DEFAULT NULL
 );
 

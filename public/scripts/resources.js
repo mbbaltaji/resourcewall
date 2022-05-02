@@ -90,8 +90,41 @@ $(document).ready(() => {
     });
   };
 
+  const addResourceHandler = function () {
+    const $inputTitle = $("#input-title").val();
+    const $inputUrl = $("#input-url").val();
+    const $inputDescription = $("#input-description").val();
+    const $inputCategory = $("#input-category").val();
+
+
+    const queryObject = {
+      user_id: 1,
+      title: $inputTitle,
+      url: $inputUrl,
+      description: $inputDescription,
+      category: $inputCategory,
+    };
+
+    console.log(queryObject);
+
+    $.ajax({
+      url: "/api/addresource",
+      method: "POST",
+      dataType: "json",
+      data: queryObject,
+      success: (data) => {
+        const newResource = data.resources.map(createResourceItem);
+        $container.prepend(newResource);
+      },
+      error: (xhr, status, errorMessage) => {
+        console.log("error recieved", status, errorMessage);
+      }
+    })
+  }
+
   loadResources();
 
   $("#search-btn").on("click", searchButtonHandler);
   $("#category-search").on("click", categorySearchHandler);
+  $("#add-resource-btn").on("click", addResourceHandler);
 });
