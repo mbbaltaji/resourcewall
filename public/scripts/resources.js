@@ -125,6 +125,6 @@ $(document).ready(() => {
   loadResources();
 
   $("#search-btn").on("click", searchButtonHandler);
-  $("#category-search").on("click", categorySearchHandler);
+  $("#category").change(categorySearchHandler);
   $("#add-resource-btn").on("click", addResourceHandler);
 });
