@@ -8,3 +8,8 @@
   position: absolute;
   left: 40%;
 }
+
+#username{
+  color: white;
+  padding-right: 5em;
+}
