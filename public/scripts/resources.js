@@ -122,9 +122,27 @@ $(document).ready(() => {
     })
   }
 
+  const myResourceHandler = function () {
+    $.ajax({
+      url: "/api/myresources",
+      method: "GET",
+      dataType: "json",
+      success: (data) => {
+        const myResources = data.resources.map(createResourceItem);
+        $container.empty();
+        $container.append(myResources);
+      },
+      error: (xhr, status, errorMessage) => {
+        console.log("error recieved", status, errorMessage);
+      }
+
+    })
+  }
+
   loadResources();
 
   $("#search-btn").on("click", searchButtonHandler);
   $("#category").change(categorySearchHandler);
   $("#add-resource-btn").on("click", addResourceHandler);
+  $("#my-resources-btn").on("click", myResourceHandler);
 });
