@@ -60,12 +60,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/resources", (req, res) => {
-  res.render("resources");
+  const user_id = req.cookies.user_id;
+  const username = req.cookies.username;
+  res.render("resources", { user: username });
+
 });
 
 app.get("/login/:user_id", (req, res) => {
   const id = req.params.user_id;
-  res.cookie('user_id', id);
 
   dbQuery= `
   SELECT name FROM users
@@ -74,9 +76,13 @@ app.get("/login/:user_id", (req, res) => {
 
   db.query(dbQuery, [id])
   .then(data => {
-    const userName = data.rows[0];
-    res.render('resources', {user: userName.name});
-  })
+    if(data.rows.length > 0) {
+      res.cookie('user_id', id);
+      const user = data.rows[0];
+      res.cookie('username', user.name);
+      res.render('resources', {user: user.name, user_id: id});
+    }
+  });
 });
 
 app.listen(PORT, () => {
