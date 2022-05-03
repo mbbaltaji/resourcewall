@@ -38,7 +38,8 @@ $(document).ready(() => {
         <i class="${icon}"></i>
       </div>
         <p class="card-text">${resource.description}</p>
-        <a href="${resource.url}" class="btn btn-primary">${resource.title}</a>
+        <a href="${resource.url}" class="btn btn-primary"><i class="fa-solid fa-link"></i>${resource.title}</a>
+        <i class="fa-solid fa-heart-circle-plus"></i>
       </div>
     </div>`);
 
