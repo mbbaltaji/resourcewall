@@ -39,7 +39,7 @@ $(document).ready(() => {
             <i class="${icon}"></i>
           </div>
             <p class="card-text">${resource.description}</p>
-            <div id="icons-footer">
+            <hr>            <div id="icons-footer">
               <a id="link-btn" href="${resource.url}"><i class="fa-solid fa-eye"></i></a>
               <i class="fa-solid fa-heart-circle-plus"></i>
             </div>
