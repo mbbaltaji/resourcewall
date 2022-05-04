@@ -14,7 +14,7 @@
 }
 
 #icons-footer{
-  margin-top: 2em;
+  /* margin-top: 2em; */
   display: flex;
   justify-content: space-between;
 }
