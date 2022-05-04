@@ -1,10 +1,12 @@
 body {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 100vh;
 
-  background: rgb(163, 208, 219);
+  // background: rgb(163, 208, 219);
+  // background: linear-gradient(black, white);
   background: linear-gradient(
     227deg,
     rgba(163, 208, 219, 1) 0%,
@@ -15,3 +17,37 @@ body {
     rgba(163, 208, 219, 1) 100%
   );
 }
+
+#category-dropdown{
+  margin-right: 51em;
+  left: 2em;
+  margin-top: 5em;
+}
+
+#category-select{
+    border-radius: 0.5em;
+    padding: 0.5em;
+    border: none;
+    background-color: beige;
+}
+
+#card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  background: #fff;
+  color: #000;
+
+  transition: 0.7s; // duration of animation
+
+  // animation expand card on hover
+  // transform: translateY(-35px);
+
+  // animation to move card up on hover
+  transform: translate3D(0,-1px,0) scale(1.07);
+  cursor: pointer;
+}
+
+
+
+
+
+

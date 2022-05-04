@@ -30,18 +30,22 @@ $(document).ready(() => {
     const icon = categories[resource.category];
     const img = `http://api.pagepeeker.com/v2/thumbs.php?size=m&code={code}&refresh={refresh}&wait={wait}&url=${resource.url}`;
 
-    const $resourceCard = $(`<div class="card" style="width: 18rem;">
+    const $resourceCard = $(`
+    <div id="card" class="card" style="width: 18rem;">
       <img class="card-img-top" src="${img}" alt="Card image cap">
       <div class="card-body">
-      <div class="title">
-        <h5 class="card-title">${resource.title}</h5>
-        <i class="${icon}"></i>
-      </div>
-        <p class="card-text">${resource.description}</p>
-        <a href="${resource.url}" class="btn btn-primary"><i class="fa-solid fa-link"></i>${resource.title}</a>
-        <i class="fa-solid fa-heart-circle-plus"></i>
-      </div>
-    </div>`);
+          <div class="title">
+            <h5 class="card-title">${resource.title}</h5>
+            <i class="${icon}"></i>
+          </div>
+            <p class="card-text">${resource.description}</p>
+            <div id="icons-footer">
+              <a id="link-btn" href="${resource.url}"><i class="fa-solid fa-eye"></i></a>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
+        </div>
+    </div>
+    `);
 
     return $resourceCard;
   };
