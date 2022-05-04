@@ -44,7 +44,9 @@ $(document).ready(() => {
             <footer>
               <div id="icons-footer">
                 <a id="link-btn" href="${resource.url}"><i class="fa-solid fa-link"></i></a>
+                <button type="button" class="like-btn" data-id=${resource.id}>
                 <span class="link-icons material-symbols-outlined">favorite</span>
+                </button>
               </div>
             <footer>
         </div>
@@ -165,6 +167,23 @@ $(document).ready(() => {
     })
   }
 
+  const likeButtonHandler = function(e) {
+    const resource_id = $(e.currentTarget).data().id;
+
+
+    $.ajax({
+      url: "/api/favourites",
+      method: "POST",
+      data: {resource_id: resource_id},
+      success: (data) => {
+        //add class to change colour
+      },
+      error: (xhr, status, errorMessage) => {
+        console.log("error recieved", status, errorMessage);
+      }
+    })
+  }
+
   loadResources();
 
   $("#search-btn").on("click", searchButtonHandler);
@@ -172,5 +191,6 @@ $(document).ready(() => {
   $("#add-resource-btn").on("click", addResourceHandler);
   $("#my-resources-btn").on("click", myResourceHandler);
   $("#favourites-btn").on("click", favouritesHandler);
-
+  $("body").on("click", ".like-btn", likeButtonHandler);
+  //$(".like-btn").on("click", likeButtonHandler);
 });
