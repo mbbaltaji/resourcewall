@@ -18,8 +18,15 @@ body {
   );
 }
 
+#header{
+  display: flex;
+
+}
+
 #category-dropdown{
-  margin-right: 51em;
+  display: flex;
+  justify-content: space-between;
+  // margin-right: 51em;
   left: 2em;
   margin-top: 5em;
 }
