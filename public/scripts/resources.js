@@ -40,12 +40,11 @@ $(document).ready(() => {
             <i class="${icon}"></i>
           </div>
             <p class="card-text">${resource.description}</p>
-        </div>
-        <div>
+        </div>        <div>
             <footer>
               <div id="icons-footer">
-                <a id="link-btn" href="${resource.url}"><i class="fa-solid fa-eye"></i></a>
-                <i class="fa-solid fa-heart-circle-plus"></i>
+                <a id="link-btn" href="${resource.url}"><span class="material-symbols-outlined link-icons">link</span></a>
+                <span class="material-symbols-outlined">favorite</span>
               </div>
             <footer>
         </div>
