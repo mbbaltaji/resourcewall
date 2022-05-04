@@ -40,7 +40,9 @@ $(document).ready(() => {
             <i class="${icon}"></i>
           </div>
             <p class="card-text">${resource.description}</p>
-        </div>        <div>
+        </div>
+        <div>
+        <hr>
             <footer>
               <div id="icons-footer">
                 <a id="link-btn" href="${resource.url}"><i class="fa-solid fa-link"></i></a>
@@ -48,7 +50,7 @@ $(document).ready(() => {
                 <span class="link-icons material-symbols-outlined">favorite</span>
                 </button>
               </div>
-            <footer>
+            </footer>
         </div>
         </div>
     </div>
@@ -57,25 +59,33 @@ $(document).ready(() => {
     return $resourceCard;
   };
 
-  const searchButtonHandler = function () {
-    // store the value of search input field
-    const $val = $("#search-input").val();
-    // make a post request to /api/resources
-    $.ajax({
-      url: "/api/resources",
-      method: "POST",
-      dataType: "json",
-      data: { searchQuery: $val }, //object containing search input value
-      success: (data) => {
-        console.log(data);
-        const resourceElements = data.resources.map(createResourceItem);
-        $container.empty();
-        $container.append(resourceElements);
-      },
-      error: (xhr, status, errorMessage) => {
-        console.log("error recieved", status, errorMessage);
-      },
-    });
+  const searchButtonHandler = function (event) {
+
+    if(event.keyCode === 13){
+      // store the value of search input field
+      const $val = '%' + $("#search-input").val() + '%';
+      console.log($val);
+      // make a post request to /api/resources
+      $.ajax({
+        url: "/api/resources",
+        method: "POST",
+        dataType: "json",
+        data: { searchQuery: $val }, //object containing search input value
+        success: (data) => {
+          console.log(data);
+          const resourceElements = data.resources.map(createResourceItem);
+          $container.empty();
+          $container.append(resourceElements);
+        },
+        error: (xhr, status, errorMessage) => {
+          console.log("error recieved", status, errorMessage);
+        },
+      });
+    } else if(event.keyCode === 27){
+      $container.empty();
+      loadResources();
+      $("#search-input").val("");
+    }
     // $.post('/api/resources', {'searchQuery': $val}, (res) => {
     //   const resourceElements = res.resources.map(createResourceItem);
     //   $container.empty();
@@ -186,7 +196,8 @@ $(document).ready(() => {
 
   loadResources();
 
-  $("#search-btn").on("click", searchButtonHandler);
+  // $("#search-btn").on("click", searchButtonHandler);
+  $( "#search-input" ).on('keyup', searchButtonHandler);
   $("#category").change(categorySearchHandler);
   $("#add-resource-btn").on("click", addResourceHandler);
   $("#my-resources-btn").on("click", myResourceHandler);

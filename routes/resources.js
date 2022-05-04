@@ -21,7 +21,7 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     // query to find resources by title
-    let query = `SELECT * FROM resources WHERE title = $1`;
+    let query = `SELECT * FROM resources WHERE title LIKE $1`;
     // req.body.searchQuery contains the value from the search input field
     db.query(query, [req.body.searchQuery])
       .then(data => {
