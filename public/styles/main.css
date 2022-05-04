@@ -12,19 +12,3 @@ body {
   left: 2em;
   margin-top: 5em;
 }
-
-#category-select {
-  border-radius: 0.5em;
-  padding: 0.5em;
-  border: none;
-  background-color: beige;
-}
-
-#card:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-  background: #fff;
-  color: #000;
-  transition: 0.7s;
-  transform: translate3D(0, -1px, 0) scale(1.07);
-  cursor: pointer;
-}
