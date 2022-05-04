@@ -1,9 +1,9 @@
 body {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: column;
+  // align-items: center;
+  // min-height: 100vh;
 
   // background: rgb(163, 208, 219);
   // background: linear-gradient(black, white);
@@ -19,17 +19,17 @@ body {
 }
 
 #header{
-  display: flex;
-
+display: flex;
 }
 
 #category-dropdown{
-  display: flex;
-  justify-content: space-between;
   // margin-right: 51em;
   left: 2em;
   margin-top: 5em;
+  width: 20%;
 }
+
+
 
 
 
