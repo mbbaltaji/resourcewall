@@ -43,8 +43,8 @@ $(document).ready(() => {
         </div>        <div>
             <footer>
               <div id="icons-footer">
-                <a id="link-btn" href="${resource.url}"><span class="material-symbols-outlined link-icons">link</span></a>
-                <span class="material-symbols-outlined">favorite</span>
+                <a id="link-btn" href="${resource.url}"><i class="fa-solid fa-link"></i></a>
+                <span class="link-icons material-symbols-outlined">favorite</span>
               </div>
             <footer>
         </div>
