@@ -1,3 +1,18 @@
+#card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  background: #fff;
+  color: #000;
+
+  transition: 0.7s; /* duration of animation */
+
+  /** animation expand card on hover **/
+  /*  transform: translateY(-35px); */
+
+  /**  animation to move card up on hover **/
+  transform: translate3D(0,-1px,0) scale(1.07);
+  cursor: pointer;
+}
+
 #icons-footer{
   display: flex;
   justify-content: space-between;
