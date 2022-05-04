@@ -43,6 +43,7 @@ const resourceRoutes = require("./routes/resources");
 const categoryRoutes = require("./routes/category");
 const addResource = require("./routes/addResource");
 const myResources = require("./routes/myResources");
+const favourites = require("./routes/favourites");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -51,6 +52,7 @@ app.use("/api/resources", resourceRoutes(db));
 app.use("/api/category", categoryRoutes(db));
 app.use("/api/addresource", addResource(db));
 app.use("/api/myresources", myResources(db));
+app.use("/api/favourites", favourites(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page

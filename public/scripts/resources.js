@@ -150,11 +150,28 @@ $(document).ready(() => {
     })
   }
 
+  const favouritesHandler = function () {
+    $.ajax({
+      url: "/api/favourites",
+      method: "GET",
+      dataType: "json",
+      success: (data) => {
+        const favourites = data.favourites.map(createResourceItem);
+        $container.empty();
+        $container.append(favourites);
+      },
+      error: (xhr, status, errorMessage) => {
+        console.log("error recieved", status, errorMessage);
+      }
+    })
+  }
+
   loadResources();
 
   $("#search-btn").on("click", searchButtonHandler);
   $("#category").change(categorySearchHandler);
   $("#add-resource-btn").on("click", addResourceHandler);
   $("#my-resources-btn").on("click", myResourceHandler);
+  $("#favourites-btn").on("click", favouritesHandler);
 
 });
