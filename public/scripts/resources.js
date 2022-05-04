@@ -33,16 +33,22 @@ $(document).ready(() => {
     const $resourceCard = $(`
     <div id="card" class="card" style="width: 18rem;">
       <img class="card-img-top" src="${img}" alt="Card image cap">
-      <div class="card-body">
+      <div id="card-footer" class="card-body">
+        <div >
           <div class="title">
             <h5 class="card-title">${resource.title}</h5>
             <i class="${icon}"></i>
           </div>
             <p class="card-text">${resource.description}</p>
-            <div id="icons-footer">
-              <a id="link-btn" href="${resource.url}"><i class="fa-solid fa-eye"></i></a>
-              <i class="fa-solid fa-heart-circle-plus"></i>
-            </div>
+        </div>
+        <div>
+            <footer>
+              <div id="icons-footer">
+                <a id="link-btn" href="${resource.url}"><i class="fa-solid fa-eye"></i></a>
+                <i class="fa-solid fa-heart-circle-plus"></i>
+              </div>
+            <footer>
+        </div>
         </div>
     </div>
     `);
