@@ -11,10 +11,27 @@
 
 #username{
   color: white;
-  padding-right: 5em;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: larger;
 }
 
 #category{
   background-color: #212529;
   color:white;
 }
+
+#logo{
+  font-family: 'Bungee Outline', sans-serif;
+  font-size: 2em;
+  padding-left: 1em;
+}
+
+#http{
+  font-family: 'Bungee Shade';
+  color: crimson;
+}
+
+#flask {
+  color: crimson;
+}
+

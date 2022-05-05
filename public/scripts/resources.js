@@ -116,7 +116,7 @@ $(document).ready(() => {
     const $inputTitle = $("#input-title").val();
     const $inputUrl = $("#input-url").val();
     const $inputDescription = $("#input-description").val();
-    const $inputCategory = $("#input-category").val();
+    const $inputCategory = $("#category-select").val();
 
 
     const queryObject = {
@@ -197,7 +197,11 @@ $(document).ready(() => {
   loadResources();
 
   // $("#search-btn").on("click", searchButtonHandler);
-  $( "#search-input" ).on('keyup', searchButtonHandler);
+  $("#all-resources-btn").on("click", () =>{
+    $("#resource-container").empty();
+    loadResources();
+  });
+  $("#search-input" ).on('keyup', searchButtonHandler);
   $("#category").change(categorySearchHandler);
   $("#add-resource-btn").on("click", addResourceHandler);
   $("#my-resources-btn").on("click", myResourceHandler);
