@@ -211,8 +211,8 @@ $(document).ready(() => {
     })
     .then( data => {
         for (const instance of data.favourites) {
-          if (resource.id === instance["id"]) {
-            $(`#${instance["id"]}`).addClass("liked");
+          if (resource.id === instance["resource_id"]) {
+            $(`#${instance["resource_id"]}`).addClass("liked");
           } else {
             continue;
           }
