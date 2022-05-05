@@ -181,12 +181,13 @@ $(document).ready(() => {
     const resource_id = $(e.currentTarget).data().id;
 
 
+
     $.ajax({
       url: "/api/favourites",
       method: "POST",
       data: {resource_id: resource_id},
       success: (data) => {
-        //add class to change colour
+        $(e.target).css("color", "red");
       },
       error: (xhr, status, errorMessage) => {
         console.log("error recieved", status, errorMessage);
