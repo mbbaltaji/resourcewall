@@ -6,21 +6,31 @@ body {
   // align-items: center;
   min-height: 100vh;
 
-  // background: rgb(163, 208, 219);
   // background: linear-gradient(black, white);
-  background: linear-gradient(
-    227deg,
-    rgba(163, 208, 219, 1) 0%,
-    rgba(163, 176, 219, 1) 20%,
-    rgba(163, 173, 219, 1) 34%,
-    rgba(163, 219, 208, 1) 59%,
-    rgba(163, 208, 219, 1) 74%,
-    rgba(163, 208, 219, 1) 100%
-  );
+  // background: linear-gradient(
+  //   227deg,
+  //   rgba(163, 208, 219, 1) 0%,
+  //   rgba(163, 176, 219, 1) 20%,
+  //   rgba(163, 173, 219, 1) 34%,
+  //   rgba(163, 219, 208, 1) 59%,
+  //   rgba(163, 208, 219, 1) 74%,
+  //   rgba(163, 208, 219, 1) 100%
+  // );
+}
+
+#body-style{
+  // background-color: #f5f5f5;
+  // background-image: url("https://www.transparenttextures.com/patterns/concrete-wall-3.png");
+  // /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+  // background-color: aliceblue;
+  background-color: whitesmoke;
 }
 
 #header{
 display: flex;
+margin-top: 1.5em;
+margin-bottom: 2em;
 }
 
 #category-dropdown{
