@@ -9,11 +9,14 @@ $(document).ready(() => {
       success: (data) => {
         const resourceElements = data.resources.map(createResourceItem);
         $container.append(resourceElements);
+        return data;
       },
       error: (xhr, status, errorMessage) => {
         console.log("error recieved", status, errorMessage);
-      },
-    });
+      }
+    }).then(data => {
+      data.resources.map(likeHandler)
+    })
   };
 
   const createResourceItem = function (resource) {
@@ -47,7 +50,7 @@ $(document).ready(() => {
               <div id="icons-footer">
                 <a id="link-btn" href="${resource.url}"><i class="fa-solid fa-link"></i></a>
                 <button type="button" class="like-btn" data-id=${resource.id}>
-                <span class="link-icons material-symbols-outlined">favorite</span>
+                <span id=${resource.id} class="link-icons material-symbols-outlined">favorite</span>
                 </button>
               </div>
             </footer>
@@ -56,7 +59,7 @@ $(document).ready(() => {
     </div>
     `);
 
-    return $resourceCard;
+  return $resourceCard;
   };
 
   const searchButtonHandler = function (event) {
@@ -193,6 +196,29 @@ $(document).ready(() => {
         console.log("error recieved", status, errorMessage);
       }
     })
+  }
+
+  const likeHandler = function (resource) {
+    $.ajax({
+      url: "/api/favourites",
+      method: "GET",
+      success: (data) => {
+        return data;
+      },
+      error: (xhr, status, errorMessage) => {
+        console.log("error recieved", status, errorMessage);
+      }
+    })
+    .then( data => {
+        for (const instance of data.favourites) {
+          if (resource.id === instance["id"]) {
+            $(`#${instance["id"]}`).addClass("liked");
+          } else {
+            continue;
+          }
+        }
+    });
+
   }
 
   loadResources();
