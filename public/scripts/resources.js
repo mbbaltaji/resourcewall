@@ -18,13 +18,13 @@ $(document).ready(() => {
 
   const createResourceItem = function (resource) {
     const categories = {
-      sports: "fa-solid fa-basketball",
-      educational: "fa-solid fa-graduation-cap",
-      art: "fa-solid fa-palette",
-      coding: "fa-solid fa-code",
-      cooking: "fa-solid fa-utensils",
-      music: "fa-solid fa-music",
-      travel: "fa-solid fa-bus",
+      Sports: "fa-solid fa-basketball",
+      Educational: "fa-solid fa-graduation-cap",
+      Art: "fa-solid fa-palette",
+      Coding: "fa-solid fa-code",
+      Cooking: "fa-solid fa-utensils",
+      Music: "fa-solid fa-music",
+      Travel: "fa-solid fa-bus"
     };
 
     const icon = categories[resource.category];
