@@ -48,7 +48,7 @@ $(document).ready(() => {
         <hr>
             <footer>
               <div id="icons-footer">
-                <a id="link-btn" href="${resource.url}"><i class="fa-solid fa-link"></i></a>
+                <a id="link-btn" href="${resource.url}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link"></i></a>
                 <button type="button" class="like-btn" data-id=${resource.id}>
                 <span id=${resource.id} class="link-icons material-symbols-outlined">favorite</span>
                 </button>
