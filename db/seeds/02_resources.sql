@@ -7,7 +7,7 @@ VALUES
 (1,'https://www.w3schools.com/', 'w3schools', 'learn how to do hard things when they are too hard to figure out alone', 'Coding', now()::date, NULL),
 (2,'https://www.healthyrecipesblogs.com/baked-chicken-wings/', 'Baked Chicken Wings', 'Baked chicken wings are so easy to make, and they come out of the oven crispy and delicious. Theres no need for flour!', 'Cooking', now()::date, NULL),
 (1,'https://www.tasty.co/article/hannahloewentheil/fall-slow-cooker-recipes', '40 Slow Cooker Recipes', 'Here Are 40 Slow Cooker Recipes To Make Every Night This Month', 'Cooking', now()::date, NULL),
-(2,'https://www.planetware.com/world/top-cities-in-the-world-to-visit-eng-1-39.htm', 'Top cities to visit', '29 Top Cities in the World to Visit', 'travel', now()::date, NULL),
+(2,'https://www.planetware.com/world/top-cities-in-the-world-to-visit-eng-1-39.htm', 'Top cities to visit', '29 Top Cities in the World to Visit', 'Travel', now()::date, NULL),
 (1,'https://www.nomadicmatt.com/travel-guides/vietnam-travel-tips/', 'Backpacking Vietnam Travel Guide', 'You’ve probably seen it in the background of countless war movies, but nothing can prepare you for the epic beauty of traveling Vietnam.', 'Travel', now()::date, NULL),
 (2,'https://www.travelandleisure.com/travel-guide/tulum', 'Tulum Travel Guide', 'Tulum is a bohemian paradise, bursting with immaculately designed hotels, spiritual centers, and restaurants that perfectly execute both ambiance and flavor.', 'Travel', now()::date, NULL),
 (1,'https://www.sarahmaker.com/how-to-crochet/', 'How to Crochet', 'Crochet is a fun, relaxing hobby that anyone can do! In this step-by-step guide, we will discuss how to crochet.', 'Art', now()::date, NULL),

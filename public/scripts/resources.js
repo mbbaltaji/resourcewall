@@ -27,7 +27,7 @@ $(document).ready(() => {
       Coding: "fa-solid fa-code",
       Cooking: "fa-solid fa-utensils",
       Music: "fa-solid fa-music",
-      Travel: "fa-solid fa-bus",
+      Travel: "fa-solid fa-plane"
     };
 
     const icon = categories[resource.category];
