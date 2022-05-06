@@ -17,13 +17,14 @@
           id="profile-btn"
           data-bs-toggle="modal"
           data-bs-target="#profileModal"
+          title="View Profile"
         >
           <i class="fa-solid fa-user"></i>
         </button>
       </li>
       <li class="nav-item active">
-        <button type="button" class="btn btn-dark" id="all-resources-btn">
-          <i title="View Resources" class="fa-solid fa-house"></i>
+        <button type="button" class="btn btn-dark" id="all-resources-btn" title="View Resources">
+          <i class="fa-solid fa-house"></i>
         </button>
       </li>
       <li class="nav-item">
@@ -65,24 +66,11 @@
         <h5 class="modal-title" id="exampleModalLabel"></h5>
       </div>
       <div id="user-profile-modal" class="modal-body">
-        <!-- visit db, get users details, trigger modal -->
-        <!-- <div class="card" style="width: 18rem">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Name</h5>
-            <p class="card-text">Email</p>
-            <p>
-              <i class="fa-brands fa-twitter"></i>
-              <i class="fa-brands fa-instagram-square"></i>
-              <i class="fa-brands fa-facebook-f"></i>
-            </p>
-          </div>
-        </div> -->
       </div>
       <div class="modal-footer">
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn  btn-outline-dark"
           id="profile-button-close"
           data-bs-dismiss="modal"
         >
@@ -157,27 +145,18 @@
               <option value="Music">Music</option>
               <option value="Travel">Travel</option>
             </select>
-
-            <!-- <label for="categorey">CATEGORY:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="input-category"
-              name="input-category"
-              placeholder="Resource category"
-            /> -->
           </div>
         </div>
         <div class="modal-footer">
           <button
             type="button"
-            class="btn btn-secondary"
+            class="btn btn-outline-dark"
             id="button-close"
             data-bs-dismiss="modal"
           >
             Close
           </button>
-          <button type="submit" id="add-resource-btn" class="btn btn-primary">
+          <button type="submit" id="add-resource-btn" class="btn btn-outline-dark">
             Submit
           </button>
         </div>
