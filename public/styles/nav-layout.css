@@ -35,3 +35,17 @@
   color: crimson;
 }
 
+#modal-body{
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}
+
+#modal-content{
+  top: 41px;
+}
+
+#profile-content{
+  top: 41px;
+}
+
