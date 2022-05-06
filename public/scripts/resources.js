@@ -13,10 +13,10 @@ $(document).ready(() => {
       },
       error: (xhr, status, errorMessage) => {
         console.log("error recieved", status, errorMessage);
-      }
-    }).then(data => {
-      data.resources.map(likeHandler)
-    })
+      },
+    }).then((data) => {
+      data.resources.map(likeHandler);
+    });
   };
 
   const createResourceItem = function (resource) {
@@ -27,7 +27,7 @@ $(document).ready(() => {
       Coding: "fa-solid fa-code",
       Cooking: "fa-solid fa-utensils",
       Music: "fa-solid fa-music",
-      Travel: "fa-solid fa-bus"
+      Travel: "fa-solid fa-bus",
     };
 
     const icon = categories[resource.category];
@@ -59,14 +59,13 @@ $(document).ready(() => {
     </div>
     `);
 
-  return $resourceCard;
+    return $resourceCard;
   };
 
   const searchButtonHandler = function (event) {
-
-    if(event.keyCode === 13){
+    if (event.keyCode === 13) {
       // store the value of search input field
-      const $val = '%' + $("#search-input").val() + '%';
+      const $val = "%" + $("#search-input").val() + "%";
       console.log($val);
       // make a post request to /api/resources
       $.ajax({
@@ -84,7 +83,7 @@ $(document).ready(() => {
           console.log("error recieved", status, errorMessage);
         },
       });
-    } else if(event.keyCode === 27){
+    } else if (event.keyCode === 27) {
       $container.empty();
       loadResources();
       $("#search-input").val("");
@@ -121,7 +120,6 @@ $(document).ready(() => {
     const $inputDescription = $("#input-description").val();
     const $inputCategory = $("#category-select").val();
 
-
     const queryObject = {
       user_id: 1,
       title: $inputTitle,
@@ -143,9 +141,9 @@ $(document).ready(() => {
       },
       error: (xhr, status, errorMessage) => {
         console.log("error recieved", status, errorMessage);
-      }
-    })
-  }
+      },
+    });
+  };
 
   const myResourceHandler = function () {
     $.ajax({
@@ -159,10 +157,9 @@ $(document).ready(() => {
       },
       error: (xhr, status, errorMessage) => {
         console.log("error recieved", status, errorMessage);
-      }
-
-    })
-  }
+      },
+    });
+  };
 
   const favouritesHandler = function () {
     $.ajax({
@@ -176,27 +173,25 @@ $(document).ready(() => {
       },
       error: (xhr, status, errorMessage) => {
         console.log("error recieved", status, errorMessage);
-      }
-    })
-  }
+      },
+    });
+  };
 
-  const likeButtonHandler = function(e) {
+  const likeButtonHandler = function (e) {
     const resource_id = $(e.currentTarget).data().id;
-
-
 
     $.ajax({
       url: "/api/favourites",
       method: "POST",
-      data: {resource_id: resource_id},
+      data: { resource_id: resource_id },
       success: (data) => {
         $(e.target).css("color", "red");
       },
       error: (xhr, status, errorMessage) => {
         console.log("error recieved", status, errorMessage);
-      }
-    })
-  }
+      },
+    });
+  };
 
   const likeHandler = function (resource) {
     $.ajax({
@@ -207,32 +202,70 @@ $(document).ready(() => {
       },
       error: (xhr, status, errorMessage) => {
         console.log("error recieved", status, errorMessage);
-      }
-    })
-    .then( data => {
-        for (const instance of data.favourites) {
-          if (resource.id === instance["resource_id"]) {
-            $(`#${instance["resource_id"]}`).addClass("liked");
-          } else {
-            continue;
-          }
+      },
+    }).then((data) => {
+      for (const instance of data.favourites) {
+        if (resource.id === instance["resource_id"]) {
+          $(`#${instance["resource_id"]}`).addClass("liked");
+        } else {
+          continue;
         }
+      }
     });
+  };
 
-  }
+  const $profileModal = $("#user-profile-modal");
+
+  const createProfile = function (users) {
+    const $profileCard = $(`
+    <div class="card" "profile-card">
+      <div class="card-body">
+        <img class="rounded mx-auto d-block" src="../images/profile-hex.png" alt="Card image cap">
+        <h2 class="card-title text-center">${users.name}</h2>
+        <h4 class="card-text text-center">${users.email}</h4>
+        <p class="card-icons text-center">
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-instagram-square"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+        </p>
+      </div>
+    </div>
+`);
+    return $profileCard;
+  };
+
+  const profileHandler = function () {
+    $.ajax({
+      url: "/api/users",
+      method: "GET",
+      dataType: "json",
+      success: (data) => {
+        const buildProfile = createProfile(data.users);
+        $profileModal.empty();
+        $profileModal.append(buildProfile);
+        // $profileModal.show();
+      },
+      error: (xhr, status, errorMessage) => {
+        console.log("error recieved", status, errorMessage);
+      },
+    });
+  };
 
   loadResources();
 
   // $("#search-btn").on("click", searchButtonHandler);
-  $("#all-resources-btn").on("click", () =>{
+  $("#all-resources-btn").on("click", () => {
     $("#resource-container").empty();
     loadResources();
   });
-  $("#search-input" ).on('keyup', searchButtonHandler);
+
+  $("#search-input").on("keyup", searchButtonHandler);
   $("#category").change(categorySearchHandler);
   $("#add-resource-btn").on("click", addResourceHandler);
   $("#my-resources-btn").on("click", myResourceHandler);
   $("#favourites-btn").on("click", favouritesHandler);
   $("body").on("click", ".like-btn", likeButtonHandler);
+  $("#profile-btn").on("click", profileHandler);
+
   //$(".like-btn").on("click", likeButtonHandler);
 });

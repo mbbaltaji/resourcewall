@@ -1,0 +1,16 @@
+
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+img {
+  max-width: 50%;
+  max-height: 50%;
+}
+#profile-button-close {
+  background-color: rgb(26, 100, 214);
+}
