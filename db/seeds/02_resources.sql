@@ -1,6 +1,6 @@
 INSERT INTO resources(user_id, url, title, description, category, created_at, deleted_on)
 VALUES
-(1,'https://www.codecademy.com/', 'codecademy', 'Learn how to code from the comfort of your own home!', 'Coding', now()::date, NULL),
+(2,'https://www.codecademy.com/', 'codecademy', 'Learn how to code from the comfort of your own home!', 'Coding', now()::date, NULL),
 (2,'https://www.discogs.com/', 'Discogs', 'Music database and marketplace.', 'Music', now()::date, NULL),
 (2,'https://www.banfflakelouise.com/', 'Banff & Lake Louise Tourism', 'Browse and book accommodation and lodging packages.', 'Travel', now()::date, NULL),
 (2,'https://www.espn.com/', 'ESPN', 'Serving sports fans. Anytime. Anywhere.', 'Sports', now()::date, NULL),
