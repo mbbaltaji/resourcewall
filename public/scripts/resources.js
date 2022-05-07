@@ -170,6 +170,7 @@ $(document).ready(() => {
         const favourites = data.favourites.map(createResourceItem);
         $container.empty();
         $container.append(favourites);
+        $("span").addClass("liked");
       },
       error: (xhr, status, errorMessage) => {
         console.log("error recieved", status, errorMessage);
