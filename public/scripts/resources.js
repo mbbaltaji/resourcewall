@@ -44,9 +44,10 @@ $(document).ready(() => {
           </div>
             <p class="card-text">${resource.description}</p>
         </div>
-        <hr>
+
         <div>
             <footer>
+            <hr>
               <div id="icons-footer">
                 <a id="link-btn" href="${resource.url}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link"></i></a>
                 <button type="button" class="like-btn" data-id=${resource.id}>
