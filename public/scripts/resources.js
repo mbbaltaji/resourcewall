@@ -78,11 +78,14 @@ $(document).ready(() => {
           const resourceElements = data.resources.map(createResourceItem);
           $container.empty();
           $container.append(resourceElements);
+          return data;
         },
         error: (xhr, status, errorMessage) => {
           console.log("error recieved", status, errorMessage);
         },
-      });
+      }).then((data) => {
+        data.resources.map(likeHandler);
+      })
     } else if (event.keyCode === 27) {
       $container.empty();
       loadResources();
@@ -107,11 +110,14 @@ $(document).ready(() => {
         const resourceElements = data.resources.map(createResourceItem);
         $container.empty();
         $container.append(resourceElements);
+        return data;
       },
       error: (xhr, status, errorMessage) => {
         console.log("error recieved", status, errorMessage);
       },
-    });
+    }).then((data) => {
+      data.resources.map(likeHandler);
+    })
   };
 
   const addResourceHandler = function () {
